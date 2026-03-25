@@ -1,0 +1,2250 @@
+/* ================= RESET ================= */
+
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background:#061630;
+    color: #fff;
+    text-align: center;
+}
+
+/* ================= bg img ================= */
+
+/* ===== CLEAN BACKGROUND IMAGE ADD ===== */
+
+.hero {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(rgba(6,22,48,0.88), rgba(6,22,48,0.92)),
+        url("cs1.jpeg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    z-index: 0;
+}
+
+/* Keep text above */
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+
+
+@keyframes premiumZoom {
+    from { transform: scale(1); }
+    to { transform: scale(1.05); }
+}
+
+
+@media (max-width: 768px) {
+
+    .hero {
+        min-height: 100svh;   /* dynamic viewport height */
+        height: 100svh;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        padding: 100px 20px 40px 20px; /* space for navbar */
+    }
+
+}
+
+
+
+/* ================= FLOATING NAV ================= */
+
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+
+    background: linear-gradient(90deg, #061630, #0A1F44);
+    transition: all 0.3s ease;
+}
+
+/* When scrolled */
+header.scrolled {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    background: #061630;
+}
+
+/* When visible */
+header.show {
+    top: 0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    height: 2px;
+    width: 100%;
+    background: linear-gradient(to right, transparent, #D4AF37, transparent);
+}
+
+.nav-container {
+    padding: 30px 80px;   /* More breathing space */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* BRAND */
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.brand img {
+    width: 70px;          /* equal width & height */
+    height: 70px;
+    border-radius: 100%;   /* makes it round */
+    object-fit: cover;    /* prevents stretching */
+}
+
+.firm-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px;
+}
+
+.firm-tag {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #D4AF37;
+    margin-top: 3px;
+}
+
+.cs-highlight {
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #D4AF37;   /* fallback color */
+
+    background: linear-gradient(135deg, #f5d47a, #D4AF37, #b8962f);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    text-shadow: 0 0 10px rgba(212,175,55,0.5);
+}
+
+
+/* NAV LINKS */
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 85px;  /* Equal spacious gap */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 15px;
+    letter-spacing: 1px;
+    font-weight: 400;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* GOLD HOVER */
+
+.nav-links a:hover {
+    color: #D4AF37;
+}
+
+/* Elegant underline animation */
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 0%;
+    height: 2px;
+    background: #D4AF37;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+.nav-links a.active {
+    color: #D4AF37;
+}
+
+/* ================= HERO ================= */
+
+/* ===== HERO INTRO PREMIUM DROP ===== */
+
+.hero-content .drop-item {
+    opacity: 0;
+    transform: translateY(-80px);
+}
+
+/* Animation trigger */
+.hero-content.animate .drop-item {
+    animation: dropIn 1s ease forwards;
+}
+
+/* Stagger timing */
+.hero-content.animate .drop-item:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.hero-content.animate .drop-item:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.hero-content.animate .drop-item:nth-child(3) {
+    animation-delay: 0.8s;
+}
+
+@keyframes dropIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+
+/* ================= MOBILE HERO FIX ================= */
+@media (max-width:768px){
+
+/* HERO SECTION */
+
+.hero{
+min-height:100svh;
+
+display:flex;
+align-items:flex-start  ;
+justify-content:center;
+
+padding:0 20px;
+padding-top:140px;   /* space for navbar */
+}
+
+/* HERO CONTENT POSITION */
+
+.hero-content{
+max-width:340px;
+
+margin:0 auto;
+
+transform:translateY(30px); /* pushes content slightly below center */
+}
+
+/* TITLE */
+
+.hero h1{
+font-size:32px;
+line-height:1.35;
+
+margin-bottom:22px;
+}
+
+/* GOLD LABEL */
+
+.hero-label{
+font-size:11px;
+letter-spacing:3px;
+
+margin-bottom:18px;
+}
+
+/* DESCRIPTION */
+
+.hero p{
+font-size:14px;
+line-height:1.6;
+
+max-width:300px;
+margin:0 auto;
+}
+
+}
+
+
+
+
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+    padding-top: 220px;   /* More vertical space */
+    background: radial-gradient(circle at top right, #0A1F44, #061630 60%);
+}
+
+.hero-content {
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.hero-label {
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #D4AF37;
+    margin-bottom: 30px;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 62px;   /* Slightly bigger */
+    line-height: 1.15;
+    margin-bottom: 30px;
+}
+
+.hero p {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #cfcfcf;
+    margin-bottom: 50px;
+}
+
+.hero-btn {
+    padding: 18px 60px;
+    border: 1px solid #D4AF37;
+    background: transparent;
+    color: #D4AF37;
+    text-decoration: none;
+    letter-spacing: 1px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.hero-btn:hover {
+    background: #D4AF37;
+    color: #061630;
+}
+
+/* ================= SECTIONS GLOBAL SPACING ================= */
+
+/* ================= PREMIUM ABOUT SECTION ================= */
+
+.about {
+    padding: 220px 20px;
+    background: linear-gradient(to bottom, #081a36 0%, #061630 100%);
+    position: relative;
+}
+
+.about .container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* HEADING */
+
+.about h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    line-height: 1.2;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+/* Gold underline accent */
+.about h2::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 2px;
+    margin: 25px auto 0;
+    background: linear-gradient(to right, transparent, #D4AF37, transparent);
+}
+
+.sub-label {
+    display: block;
+    color: #D4AF37;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-size: 13px;
+    margin: 25px 0 60px 0;
+}
+
+/* PARAGRAPHS */
+
+.about p {
+    font-size: 18px;
+    line-height: 1.9;
+    color: #d8d8d8;
+    margin-bottom: 40px;
+    max-width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ================= TWO COLUMN LUXURY CARDS ================= */
+/* ================= PREMIUM SERVICE GRID ================= */
+
+.two-col-list {
+    margin-top: 100px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 60px;
+}
+
+/* Main Service Card */
+
+.two-col-list > div {
+    padding: 60px 55px;
+    border-radius: 14px;
+    position: relative;
+    overflow: hidden;
+
+    background: linear-gradient(
+        145deg,
+        rgba(255,255,255,0.04),
+        rgba(255,255,255,0.01)
+    );
+
+    border: 1px solid rgba(212,175,55,0.12);
+
+    transition: all 0.5s ease;
+}
+
+/* Gold top glow line */
+
+.two-col-list > div::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #D4AF37, transparent);
+    opacity: 0.6;
+}
+
+/* Hover Luxury Effect */
+
+.two-col-list > div:hover {
+    transform: translateY(-12px);
+    border-color: #D4AF37;
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.5),
+        0 0 40px rgba(212,175,55,0.08);
+}
+
+/* Card Title */
+
+.two-col-list h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    margin-bottom: 35px;
+    color: #ffffff;
+    position: relative;
+    text-align: center; /* center title */
+}
+
+/* Centered gold line */
+.two-col-list h4::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -15px;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 2px;
+    background: #D4AF37;
+}
+
+/* Remove old list look */
+
+.two-col-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Make each item a premium row */
+
+.two-col-list li {
+    padding: 18px 22px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.05);
+
+    font-size: 15px;
+    color: #d9d9d9;
+
+    transition: all 0.3s ease;
+}
+
+/* Hover for each service */
+
+.two-col-list li:hover {
+    background: rgba(212,175,55,0.08);
+    border-color: rgba(212,175,55,0.3);
+    transform: translateX(8px);
+    color: #ffffff;
+}
+
+/* Remove bullet dot */
+
+.two-col-list li::before {
+    display: none;
+}
+
+
+
+
+/* ================= TITLE CENTER PREMIUM ================= */
+
+.two-col-list h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    margin-bottom: 35px;
+    color: #ffffff;
+    position: relative;
+    text-align: center;
+    transition: all 0.4s ease;
+}
+
+/* Centered gold underline */
+.two-col-list h4::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -15px;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: #D4AF37;
+    transition: width 0.4s ease;
+}
+
+/* Animate underline on hover */
+.two-col-list > div:hover h4::after {
+    width: 70px;
+}
+
+/* Slight gold glow on hover */
+.two-col-list > div:hover h4 {
+    color: #D4AF37;
+    text-shadow: 0 0 12px rgba(212,175,55,0.5);
+}
+
+/* Card hover smooth lift */
+.two-col-list > div {
+    transition: all 0.4s ease;
+}
+
+.two-col-list > div:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    border-color: #D4AF37;
+}
+
+
+
+
+@media (max-width: 768px) {
+
+    .two-col-list {
+        gap: 35px;
+    }
+
+    .two-col-list h4 {
+        font-size: 20px;
+    }
+
+    .two-col-list h4::after {
+        bottom: -12px;
+    }
+
+    /* Softer hover effect on mobile */
+    .two-col-list > div:hover {
+        transform: translateY(-6px);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ================= STATS ================= */
+
+
+
+
+
+
+
+/* ================= PREMIUM STATS SECTION ================= */
+
+.stats {
+    padding: 200px 20px;
+    background: linear-gradient(to bottom, #061630, #081a36);
+    position: relative;
+}
+
+.stats-grid {
+    display: flex;
+    justify-content: center;
+    gap: 160px;
+    flex-wrap: wrap;
+}
+
+/* Individual Stat Box */
+
+.stat {
+    text-align: center;
+    padding: 40px 50px;
+    border-radius: 14px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(212,175,55,0.12);
+    transition: all 0.4s ease;
+}
+
+/* Hover Premium Lift */
+
+.stat:hover {
+    transform: translateY(-10px);
+    border-color: #D4AF37;
+    box-shadow: 
+        0 20px 60px rgba(0,0,0,0.5),
+        0 0 30px rgba(212,175,55,0.1);
+}
+
+/* Number Styling */
+
+.stat h3 {
+    font-size: 64px;
+    font-weight: 600;
+    color: #D4AF37;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+    text-shadow: 0 0 15px rgba(212,175,55,0.4);
+}
+
+/* Label Styling */
+/* ================= STATS HEADING ================= */
+
+
+.stats {
+    padding: 200px 20px;
+    background: linear-gradient(to bottom,#061630);
+    text-align: center;
+}
+
+.stats-heading {
+    margin-bottom: 100px;
+}
+
+.stats-heading h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    letter-spacing: 0.5px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+/* Elegant Gold Line */
+.stats-line {
+    width: 80px;
+    height: 2px;
+    margin: 0 auto;
+    background: linear-gradient(to right, transparent, #D4AF37, transparent);
+}
+
+/* Mobile Responsive */
+
+@media (max-width: 768px) {
+    .stats-heading h2 {
+        font-size: 34px;
+    }
+
+    .stats-heading {
+        margin-bottom: 60px;
+    }
+}
+
+.stat p {
+    margin-top: 10px;
+    font-size: 15px;
+    color: #cfcfcf;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+
+
+@media (max-width: 768px) {
+    .stats-grid {
+        gap: 60px;
+    }
+
+    .stat h3 {
+        font-size: 44px;
+    }
+}
+
+
+
+/* ================= EXPERTISE ================= */
+
+/* ================= PREMIUM EXPERTISE GRID ================= */
+
+/* ================= SECTION HEADER ================= */
+/* ================= SECTION HEADER ================= */
+
+/* ================= EXPERTISE ================= */
+/* ================= EXPERTISE PREMIUM ADD-ONS ================= */
+
+/* Gold top accent line */
+
+.expertise-card::before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:2px;
+
+background:linear-gradient(to right,transparent,#D4AF37,transparent);
+
+opacity:.6;
+}
+
+
+/* Elegant title underline */
+
+.expertise-card h3{
+position:relative;
+display:inline-block;
+}
+
+.expertise-card h3::after{
+
+content:"";
+
+position:absolute;
+
+left:50%;
+bottom:-8px;
+
+transform:translateX(-50%);
+
+width:30px;
+height:2px;
+
+background:#D4AF37;
+
+transition:.35s;
+
+}
+
+
+/* Desktop hover */
+
+.expertise-card:hover{
+
+transform:translateY(-8px);
+
+border-color:#D4AF37;
+
+box-shadow:
+0 20px 40px rgba(0,0,0,.5),
+0 0 30px rgba(212,175,55,.15);
+
+}
+
+.expertise-card:hover h3::after{
+width:70px;
+}
+
+
+/* ================= MOBILE OPTIMIZATION ================= */
+
+@media(max-width:768px){
+
+/* Softer card spacing */
+
+.expertise-card{
+padding:30px 22px;
+}
+
+/* Reduce number size */
+
+.expertise-number{
+font-size:36px;
+}
+
+/* Smaller underline */
+
+.expertise-card h3::after{
+width:24px;
+}
+
+/* Disable hover lift (mobile has no hover) */
+
+.expertise-card:hover{
+transform:none;
+box-shadow:none;
+border-color:rgba(212,175,55,0.25);
+}
+
+/* Tap feedback instead */
+
+.expertise-card:active{
+border-color:#D4AF37;
+background:rgba(255,255,255,0.05);
+}
+
+}
+
+
+
+.expertise{
+padding:140px 20px;
+background:linear-gradient(to bottom, #061630);
+text-align:center;
+}
+
+/* HEADER */
+
+.section-header{
+max-width:700px;
+margin:0 auto 70px;
+}
+
+.section-label{
+display:block;
+font-size:12px;
+letter-spacing:4px;
+text-transform:uppercase;
+color:#D4AF37;
+margin-bottom:15px;
+}
+
+.section-header h2{
+font-family:'Playfair Display',serif;
+font-size:46px;
+margin-bottom:18px;
+}
+
+.section-line{
+width:60px;
+height:2px;
+margin:auto;
+background:#D4AF37;
+}
+
+
+/* GRID */
+
+.expertise-grid{
+max-width:1200px;
+margin:auto;
+
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:40px;
+}
+
+
+/* CARD */
+
+.expertise-card{
+
+position:relative;
+
+padding:40px 35px;
+
+background:rgba(255,255,255,0.03);
+
+border:1px solid rgba(212,175,55,0.15);
+
+border-radius:14px;
+
+transition:all .3s ease;
+}
+
+.expertise-card:hover{
+transform:translateY(-8px);
+border-color:#D4AF37;
+box-shadow:0 20px 40px rgba(0,0,0,.45);
+}
+
+
+/* NUMBER */
+
+.expertise-number{
+
+position:absolute;
+
+top:18px;
+right:22px;
+
+font-size:48px;
+
+font-family:'Playfair Display',serif;
+
+color:rgba(212,175,55,0.12);
+}
+
+
+/* TITLE */
+
+.expertise-card h3{
+font-family:'Playfair Display',serif;
+font-size:21px;
+color:#D4AF37;
+margin-bottom:14px;
+}
+
+
+/* TEXT */
+
+.expertise-card p{
+font-size:15px;
+line-height:1.7;
+color:#cfcfcf;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media(max-width:1024px){
+
+.expertise-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+@media(max-width:768px){
+
+.expertise{
+padding:90px 18px;
+}
+
+.section-header h2{
+font-size:32px;
+}
+
+.expertise-grid{
+grid-template-columns:1fr;
+gap:25px;
+}
+
+.expertise-card{
+padding:30px 24px;
+}
+
+.expertise-number{
+font-size:36px;
+}
+
+}
+
+
+
+
+
+
+
+
+
+/* ================= WHY SECTION ================= */
+/* ================= WHY CHOOSE US - CLEAN PREMIUM ================= */
+
+/* ================= WHY CHOOSE US PREMIUM ================= */
+/* ================= WHY CHOOSE US ================= */
+
+.why{
+padding:150px 20px;
+background:linear-gradient(to bottom,#061630);
+text-align:center;
+}
+
+/* HEADER */
+
+.why .section-header{
+max-width:720px;
+margin:0 auto 80px;
+}
+
+/* ================= GRID ================= */
+
+.why-grid{
+
+max-width:1150px;
+margin:auto;
+
+display:grid;
+grid-template-columns:repeat(3,1fr);
+
+gap:35px;
+
+}
+
+
+/* ================= BOX ================= */
+
+.why-card{
+
+position:relative;
+
+padding:38px 34px;
+
+background:#0b2245;
+
+border-radius:10px;
+
+border-left:4px solid #D4AF37;
+
+text-align:left;
+
+transition:all .3s ease;
+
+}
+
+
+/* subtle hover */
+
+.why-card:hover{
+
+transform:translateY(-6px);
+
+background:#0f2a55;
+
+box-shadow:0 18px 40px rgba(0,0,0,.45);
+
+}
+
+
+/* NUMBER */
+
+.why-number{
+
+display:inline-block;
+
+font-size:13px;
+
+letter-spacing:2px;
+
+color:#D4AF37;
+
+margin-bottom:10px;
+
+font-weight:600;
+
+}
+
+
+/* TITLE */
+
+.why-card h3{
+
+font-family:'Playfair Display',serif;
+
+font-size:20px;
+
+margin-bottom:12px;
+
+color:#ffffff;
+
+}
+
+
+/* TEXT */
+
+.why-card p{
+
+font-size:14.5px;
+
+line-height:1.7;
+
+color:#cfcfcf;
+
+}
+
+
+/* ================= TABLET ================= */
+
+@media(max-width:1024px){
+
+.why-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+
+.why{
+padding:90px 20px;
+}
+
+.why-grid{
+grid-template-columns:1fr;
+gap:22px;
+}
+
+.why-card{
+padding:26px 22px;
+}
+
+.why-card h3{
+font-size:18px;
+}
+
+.why-card p{
+font-size:14px;
+}
+
+}
+
+/* ================= WHY CARD PREMIUM ADD-ONS ================= */
+
+/* Soft background glow */
+
+.why-card::before{
+content:"";
+position:absolute;
+inset:0;
+
+background:radial-gradient(
+circle at top left,
+rgba(212,175,55,0.08),
+transparent 60%
+);
+
+opacity:0;
+transition:opacity .4s ease;
+
+pointer-events:none;
+}
+
+.why-card:hover::before{
+opacity:1;
+}
+
+
+/* Gold left bar animation */
+
+.why-card::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+top:0;
+
+width:4px;
+height:0%;
+
+background:#D4AF37;
+
+transition:height .4s ease;
+
+}
+
+.why-card:hover::after{
+height:100%;
+}
+
+
+/* Elegant hover shine sweep */
+
+.why-card span{
+position:relative;
+z-index:2;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* CARD HEADING */
+
+.why-card h3{
+
+font-family:'Playfair Display',serif;
+font-size:22px;
+
+color:#D4AF37;   /* gold */
+
+margin-bottom:14px;
+font-weight:600;
+letter-spacing:0.3px;
+
+}
+
+
+
+.why-card h3::after{
+
+content:"";
+
+display:block;
+
+width:35px;
+height:2px;
+
+background:#D4AF37;
+
+margin-top:10px;
+
+border-radius:2px;
+
+opacity:0.9;
+
+}
+
+
+
+
+
+
+
+
+
+
+.why-card p{
+position:relative;
+z-index:2;
+}
+
+
+/* subtle shine */
+
+.why-card .shine{
+position:absolute;
+top:0;
+left:-120%;
+width:60%;
+height:100%;
+
+background:linear-gradient(
+120deg,
+transparent,
+rgba(255,255,255,0.15),
+transparent
+);
+
+transition:0.6s;
+
+}
+
+.why-card:hover .shine{
+left:120%;
+}
+
+
+
+
+/* ================= CTA ================= */
+
+.final-cta p {
+    max-width: 750px;
+    margin: 0 auto 50px auto;
+    color: #cfcfcf;
+    font-size: 17px;
+}
+
+/* ================= MOBILE ================= */
+
+.menu-toggle {
+    display: none;
+}
+
+@media (max-width: 900px) {
+
+    header {
+        width: 95%;
+        top: 15px;
+    }
+
+    .nav-container {
+        padding: 20px 30px;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: #061630;
+        flex-direction: column;
+        width: 250px;
+        padding: 40px;
+        display: none;
+        gap: 40px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+        font-size: 26px;
+        cursor: pointer;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+    .stats-grid {
+        gap: 70px;
+    }
+}
+
+
+
+
+
+
+
+
+
+/* ================= CLIENT LOGOS PREMIUM ================= */
+
+.logo-wrapper{
+width:100%;
+margin-top:80px;
+display:flex;
+justify-content:center;
+}
+
+/* GRID */
+
+.logo-grid{
+display:grid;
+
+grid-template-columns:repeat(5,1fr);
+
+gap:35px;
+
+max-width:1200px;
+
+justify-items:center;
+align-items:center;
+}
+
+/* CARD */
+
+.logo-card{
+
+width:200px;
+height:100px;
+
+background:#ffffff;
+
+border-radius:14px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+padding:10px;
+
+overflow:hidden;
+
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
+
+transition:0.3s ease;
+}
+
+/* IMAGE (REAL FIX) */
+
+/* ================= FORCE LOGO FILL ================= */
+/* boost small logos */
+
+img[src*="vajra"],
+img[src*="gatu"],
+img[src*="fb"]{
+
+transform: scale(1.6);
+
+}
+
+.logo-card img{
+
+width: 100%;
+height: 100%;
+
+/* 🔥 THIS IS THE REAL FIX */
+object-fit: contain;
+
+/* remove internal shrinking */
+max-width: 100%;
+max-height: 100%;
+
+/* slight zoom */
+transform: scale(1.3);
+
+}
+
+/* HOVER */
+
+.logo-card:hover{
+transform:translateY(-6px);
+box-shadow:0 18px 35px rgba(0,0,0,0.25);
+}
+
+
+
+@media (max-width:768px){
+
+.logo-grid{
+grid-template-columns:repeat(2,1fr);
+gap:20px;
+}
+
+.logo-card{
+width:150px;
+height:80px;
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ================= CLIENTS SECTION ================= */
+
+.clients {
+    padding: 160px 20px;
+    text-align: center;
+    background: linear-gradient(to bottom, #061630);
+}
+
+/* Heading */
+
+.clients h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 44px;
+    margin-bottom: 18px;
+    position: relative;
+}
+
+.clients h2::after {
+    content: "";
+    width: 55px;
+    height: 3px;
+    background: #D4AF37;
+    display: block;
+    margin: 18px auto 0;
+    border-radius: 2px;
+}
+
+/* Subtext */
+
+.clients-sub {
+    max-width: 700px;
+    margin: 0 auto 80px;
+    font-size: 16px;
+    color: #cfcfcf;
+    line-height: 1.6;
+}
+
+
+
+
+
+
+
+/* ================= FINAL CTA PREMIUM ================= */
+/* ================= FINAL CTA ================= */
+
+.final-cta{
+
+padding:180px 20px;
+
+text-align:center;
+
+background:
+radial-gradient(circle at top,#061630 70%);
+
+color:white;
+}
+
+.final-cta .container{
+max-width:900px;
+margin:auto;
+}
+
+
+/* Label */
+
+.cta-label{
+
+color:#D4AF37;
+
+letter-spacing:3px;
+
+font-size:12px;
+
+text-transform:uppercase;
+
+display:inline-block;
+
+margin-bottom:25px;
+}
+
+
+/* Heading */
+
+.final-cta h2{
+
+font-family:'Playfair Display',serif;
+
+font-size:48px;
+
+margin-bottom:20px;
+
+line-height:1.2;
+}
+
+
+/* Paragraph */
+
+.final-cta p{
+
+color:#cbd5e1;
+
+font-size:17px;
+
+line-height:1.7;
+
+margin-bottom:50px;
+}
+
+
+/* Button wrapper */
+
+.cta-actions{
+
+display:flex;
+
+justify-content:center;
+
+gap:25px;
+
+flex-wrap:wrap;
+}
+
+
+/* Buttons */
+
+.cta-btn{
+
+padding:16px 40px;
+
+border:1px solid #D4AF37;
+
+color:#D4AF37;
+
+text-decoration:none;
+
+font-weight:500;
+
+letter-spacing:1px;
+
+transition:all .3s ease;
+
+border-radius:4px;
+}
+
+.cta-btn:hover{
+
+background:#D4AF37;
+
+color:#061630;
+
+transform:translateY(-3px);
+}
+
+
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+
+.final-cta{
+padding:110px 20px;
+}
+
+.final-cta h2{
+font-size:30px;
+}
+
+.final-cta p{
+font-size:14px;
+margin-bottom:30px;
+}
+
+.cta-actions{
+flex-direction:column;
+gap:15px;
+}
+
+.cta-btn{
+width:100%;
+max-width:320px;
+}
+
+}
+
+/* ================= MOBILE FIX ================= */
+
+@media (max-width:768px){
+
+.final-cta{
+padding:110px 18px;
+text-align:center;
+}
+
+/* Heading */
+
+.final-cta h2{
+font-size:30px;
+line-height:1.3;
+}
+
+/* Paragraph */
+
+.final-cta p{
+font-size:15px;
+line-height:1.6;
+margin-bottom:35px;
+}
+
+/* Button wrapper */
+
+.cta-actions{
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:16px;
+}
+
+/* Buttons */
+
+.cta-btn{
+
+width:100%;
+max-width:320px;
+
+padding:16px 18px;
+
+font-size:14px;
+
+text-align:center;
+
+line-height:1.5;
+
+white-space:normal;   /* allows text to wrap nicely */
+}
+
+/* Fix email breaking */
+
+.cta-btn.secondary{
+word-break:break-word;
+}
+
+}
+
+
+
+/* ================= FOOTER ================= */
+/* ================= FOOTER ================= */
+
+.footer {
+    padding: 90px 20px 40px;
+    background: #041224;
+    text-align: center;
+    border-top: 1px solid rgba(212,175,55,0.15);
+}
+
+.footer .container {
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* Firm Name */
+
+.footer-top h3 {
+    font-family: 'Playfair Display', 'Times New Roman', Times, serif;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.footer-top p {
+    color: #D4AF37;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+}
+
+/* Contact Row */
+
+.footer-contact,
+.footer-social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+}
+
+.footer-contact a,
+.footer-social a {
+    color: #e5e5e5;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    font-size: 15px;
+}
+
+.footer-contact a:hover,
+.footer-social a:hover {
+    color: #D4AF37;
+}
+
+.footer-contact span,
+.footer-social span {
+    color: rgba(255,255,255,0.35);
+}
+
+/* Bottom */
+
+.footer-bottom {
+    margin-top: 35px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+}
+
+
+
+
+
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+
+    .footer {
+        padding: 60px 16px 30px;
+    }
+
+    .footer-top h3 {
+        font-size: 18px;
+    }
+
+    .footer-top p {
+        font-size: 11px;
+        letter-spacing: 1.5px;
+    }
+
+    .footer-contact,
+    .footer-social {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .footer-contact span,
+    .footer-social span {
+        display: none;
+    }
+
+    .footer-contact a,
+    .footer-social a {
+        font-size: 14px;
+    }
+
+    .footer-bottom {
+        font-size: 12px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===== FORCE MOBILE PERFECT CENTER FIX ===== */
+@media (max-width: 768px) {
+
+    html, body {
+        overflow-x: hidden;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
+        margin: 0 auto;
+    }
+
+    section {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    .hero {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        min-height: 100vh;
+        padding: 0 20px;
+    }
+
+    .hero h1,
+    .hero p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Social Icons */
+
+.footer-social {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.footer-social a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #e5e5e5;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    font-size: 15px;
+}
+
+.footer-social a i {
+    font-size: 16px;
+    color: #D4AF37;
+    transition: transform 0.3s ease;
+}
+
+.footer-social a:hover {
+    color: #D4AF37;
+}
+
+.footer-social a:hover i {
+    transform: translateY(-2px);
+}
+
+
+@media (max-width: 768px) {
+
+    .footer-social {
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .footer-social a {
+        font-size: 14px;
+    }
+}
+
+
+
+
+
+
+
+
+
+/* ================= CONTACT SECTION ================= */
+
+.contact-section{
+padding:150px 20px;
+background:linear-gradient(to bottom,#061630);
+text-align:center;
+}
+
+/* GRID */
+
+.contact-grid{
+max-width:1200px;
+margin:80px auto 0;
+
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:50px;
+align-items:stretch;
+}
+
+/* ================= LEFT CARD ================= */
+
+.contact-info{
+
+background:rgba(255,255,255,0.03);
+
+border:1px solid rgba(212,175,55,0.15);
+
+border-radius:14px;
+
+padding:40px;
+
+text-align:left;
+
+position:relative;
+overflow:hidden;
+}
+
+/* GOLD TOP LINE */
+
+.contact-info::before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:2px;
+
+background:linear-gradient(to right,transparent,#D4AF37,transparent);
+}
+
+/* TEXT */
+
+.contact-info h3{
+font-family:'Playfair Display',serif;
+color:#D4AF37;
+margin-bottom:10px;
+}
+
+.contact-info .rating{
+color:#fff;
+margin-bottom:10px;
+}
+
+.contact-details p{
+margin:15px 0;
+color:#cfcfcf;
+line-height:1.6;
+}
+
+.contact-details i{
+color:#D4AF37;
+margin-right:10px;
+}
+
+/* ================= FORM ================= */
+
+.contact-form-box{
+
+background:rgba(255,255,255,0.03);
+
+border:1px solid rgba(212,175,55,0.15);
+
+border-radius:14px;
+
+padding:40px;
+position:relative;
+}
+
+/* GOLD TOP LINE */
+
+.contact-form-box::before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:2px;
+
+background:linear-gradient(to right,transparent,#D4AF37,transparent);
+}
+
+/* FORM */
+
+.contact-form-box h3{
+font-family:'Playfair Display',serif;
+margin-bottom:25px;
+color:#D4AF37;
+}
+
+.contact-form-box input,
+.contact-form-box textarea{
+
+width:100%;
+padding:14px;
+
+margin-bottom:15px;
+
+border-radius:8px;
+
+border:1px solid rgba(255,255,255,0.1);
+
+background:#061630;
+color:#fff;
+
+outline:none;
+}
+
+/* BUTTON */
+
+.contact-form-box button{
+
+width:100%;
+padding:14px;
+
+background:#D4AF37;
+color:#061630;
+
+border:none;
+border-radius:8px;
+
+font-weight:600;
+cursor:pointer;
+
+transition:0.3s;
+}
+
+.contact-form-box button:hover{
+background:#e6c04f;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+
+.contact-grid{
+grid-template-columns:1fr;
+gap:30px;
+}
+
+.contact-section{
+padding:100px 20px;
+}
+
+}
+
+
+
+
+
+
+
+
+
+/* ================= CONTACT INFO PREMIUM UPGRADE ================= */
+
+.contact-info{
+padding:50px 45px;
+line-height:1.7;
+}
+
+/* TITLE (MAIN NAME) */
+
+.contact-info h3{
+font-family:'Playfair Display',serif;
+font-size:26px;
+font-weight:600;
+
+color:#D4AF37;
+
+letter-spacing:0.5px;
+
+margin-bottom:12px;
+
+text-shadow:0 0 10px rgba(212,175,55,0.25);
+}
+
+/* RATING */
+
+.contact-info .rating{
+font-size:14px;
+color:#e5e5e5;
+
+margin-bottom:18px;
+
+letter-spacing:0.5px;
+}
+
+/* SUB TEXT */
+
+.contact-info > p{
+font-size:15px;
+color:#bfc7d5;
+
+margin-bottom:25px;
+}
+
+/* DETAILS BLOCK */
+
+.contact-details{
+display:flex;
+flex-direction:column;
+gap:18px;
+}
+
+/* EACH LINE */
+
+.contact-details p{
+
+display:flex;
+align-items:flex-start;
+
+gap:12px;
+
+font-size:15px;
+color:#d6d6d6;
+
+line-height:1.6;
+}
+
+/* ICONS */
+
+.contact-details i{
+
+color:#D4AF37;
+
+font-size:16px;
+
+margin-top:3px;
+
+min-width:18px;
+
+/* glow */
+text-shadow:0 0 8px rgba(212,175,55,0.4);
+}
+
+/* ADDRESS LOOK IMPROVE */
+
+.contact-details p:first-child{
+font-size:15.5px;
+color:#ffffff;
+font-weight:500;
+}
+
+/* HOVER INTERACTION (subtle) */
+
+.contact-details p:hover{
+color:#ffffff;
+transform:translateX(4px);
+transition:0.2s ease;
+}
+
+/* ================= CARD ENHANCEMENT ================= */
+
+.contact-info{
+
+background:linear-gradient(
+145deg,
+rgba(255,255,255,0.04),
+rgba(255,255,255,0.01)
+);
+
+border:1px solid rgba(212,175,55,0.2);
+
+backdrop-filter:blur(10px);
+}
+
+/* SOFT GOLD GLOW ON HOVER */
+
+.contact-info:hover{
+box-shadow:
+0 20px 60px rgba(0,0,0,0.5),
+0 0 25px rgba(212,175,55,0.12);
+transform:translateY(-4px);
+transition:0.3s ease;
+}
